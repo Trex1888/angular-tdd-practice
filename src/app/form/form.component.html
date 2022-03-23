@@ -1,0 +1,67 @@
+<div>
+  <form [formGroup]="nameForm" class="formDiv">
+    <label for="first" class="labelText">First Name</label>
+    <input type="text" name="first" id="first" formControlName="first" />
+    <span
+      class="error"
+      *ngIf="nameForm.get('first')?.errors?.['required'] && nameForm.get('first')?.touched"
+      >First Name Is Required</span
+    >
+    <span
+      class="error"
+      *ngIf="nameForm.get('first')?.errors?.['maxlength'] && nameForm.get('first')?.touched"
+      >Max Length 30 Characters</span
+    >
+
+    <div class="check">
+      <label for="check">No Middle Name</label>
+      <input id="check" type="checkbox" (click)="checkClick()" />
+      <span
+        class="error"
+        *ngIf="nameForm.get('middle')?.errors?.['maxlength'] && nameForm.get('middle')?.touched"
+        >Max Length 30 Characters</span
+      >
+    </div>
+    <label for="middle" class="labelText">Middle Name</label>
+    <input
+      *ngIf="checkVisible"
+      type="text"
+      name="middle"
+      id="middle"
+      formControlName="middle"
+    />
+
+    <label for="last" class="labelText">Last Name</label>
+    <input type="text" name="last" id="last" formControlName="last" />
+    <span
+      class="error"
+      *ngIf="nameForm.get('last')?.errors?.['required'] && nameForm.get('last')?.touched"
+      >Last Name Is Required</span
+    >
+    <span
+      class="error"
+      *ngIf="nameForm.get('last')?.errors?.['maxlength'] && nameForm.get('last')?.touched"
+      >Max Length 30 Characters</span
+    >
+
+    <label for="phone" class="labelText">Phone Number</label>
+    <input type="text" name="phone" id="phone" formControlName="phone" />
+    <span
+      class="error"
+      *ngIf="nameForm.get('phone')?.errors?.['required'] && nameForm.get('phone')?.touched"
+      >Phone Number Is Required</span
+    >
+    <span
+      class="error"
+      *ngIf="nameForm.get('phone')?.errors?.['phoneNumberInvalid'] && nameForm.get('phone')?.touched"
+      >Enter 10 Digit Number</span
+    >
+
+    <button role="button" [disabled]="!nameForm.valid" (click)="addName()">
+      Add Info
+    </button>
+  </form>
+  <div class="info">
+    <p class="success" *ngIf="showMsg">{{ "Form Added Successfully!" }}</p>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="main">
+  <h2 *ngIf="headerVisible">Angular Test Driven Development</h2>
+
+  <div>
+    <label for="check">Click Checkbox To Hide Header Text</label>
+    <input type="checkbox" id="check" (click)="hideHeader()" />
+  </div>
+
+  <div *ngIf="listVisible">
+    <ul *ngFor="let item of list">
+      <li>{{ item.name }}</li>
+    </ul>
+  </div>
+
+  <button type="button" class="btn btn-secondary" (click)="hideList()">
+    Hide 5 Strings
+  </button>
+</div>

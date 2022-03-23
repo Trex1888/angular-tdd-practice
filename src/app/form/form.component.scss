@@ -1,0 +1,38 @@
+.formDiv {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+
+input {
+  margin: 10px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.info {
+  text-align: center;
+}
+
+.labelText {
+  text-align: center;
+  margin: auto;
+}
+
+.error {
+  color: red;
+  font-weight: 600;
+  text-align: center;
+}
+
+.success {
+  color: green;
+  font-weight: 700;
+}
